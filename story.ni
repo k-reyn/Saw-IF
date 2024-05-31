@@ -109,6 +109,17 @@ The bed is scenery. The description of the bed is "A lumpy mattress of scratchy 
 
 The bedframe leg is part of the bed. The leg is a supporter. The tape player is on the leg.
 
+Instead of doing anything when the player is in the rustic bedroom:
+	if examining the bed:
+		continue the action;
+	if going to the rustic bedroom:
+		continue the action;
+	if saying the room description:
+		continue the action;
+	otherwise:
+		say "monologue monologue";
+		stop the action.
+
 [Instead of doing anything other than examining the bed when the player is in the rustic bedroom:
 	Say "A voice, slightly distorted and fuzzy by poor audio, suddenly rings out. It sounds like it's coming from below the bed. You pause, a shiver running down your spine as you listen. 'Welcome. I’m glad you’re awake. You’re here because you have been chosen to be my judge. The man you can see through the window - his life, and his livelihood, depends on your judgment. Before you will make that judgment, however, I will put you through several tests to train you for the final decision. I trust that you will look carefully in order to gain the evidence you will need to make the final judgment.'";
 	stop the action.
@@ -117,3 +128,53 @@ The lightbulb is scenery. The description of the lightbulb is “Although incand
 
 
 Chapter 2 - In Progress/TBD code
+
+[THIS CODE KINDA WORKS, I WAS WORKING ON A HEALTH/ENDURANCE SYSTEM. THIS STUFF I WROTE BELOW HAS POTENTIAL TO BE USEFUL, BUT IT NEEDS SOME WORK BEFORE IT IS ACTUALLY GOOD.]
+[Endurance is a kind of value. 1 ep specifies an endurance.
+Animals can have an endurance. The player has an endurance. The player has an endurance 12 ep.]
+
+[Equation - Current HP
+	N = C - D
+where N is a health, C is a health, and D is a damage.
+Damage is a kind of value. 1 dmg specifies a damage. Harm is a damage that varies. Harm is 2 dmg. 
+Health is a kind of value. 1hp specifies a health. 
+
+Instead of examining the bed:
+	if health is not less than 1 dmg:
+		[now subtract 2 dmg from health;]
+		say "You have taken damage. You can take [health] more before succumbing to your anguish."]
+[		
+HP is a kind of value. The HPs are healthy, passable, decent, uncomfortable, hurt, injured, wounded, battered, suffering, traumatized, brutalized, and dying. The player has an HP. The player is healthy.
+]
+[
+Before of examining the bed:
+	if the player is healthy:
+		now the player is passable;
+		continue the action;
+	if the player is passable:
+		now the player is decent;
+		continue the action;
+	if the player is decent:
+		now the player is uncomfortable;
+		continue the action;
+	if the player is uncomfortable:
+		now the player is hurt;
+		continue the action;
+	if the player is injured:
+		now the player is wounded;
+		continue the action;
+	if the player is wounded:
+		now the player is battered;
+		continue the action;
+	if the player is suffering:
+		now the player is traumatized;
+		continue the action;
+	if the player is traumatized:
+		now the player is brutalized;
+		continue the action;
+	if the player is brutalized:
+		now the player is dying;
+		continue the action;
+After examining the bed:
+	say "Ouch! You get stabbed by a splinter on the side of the bedframe. Now you feel [HP of the player]"
+]
